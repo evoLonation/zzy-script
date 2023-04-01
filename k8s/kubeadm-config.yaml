@@ -1,0 +1,15 @@
+# kubeadm-config.yaml
+kind: InitConfiguration 
+apiVersion: kubeadm.k8s.io/v1beta3
+nodeRegistration:
+  criSocket: "unix:///var/run/cri-dockerd.sock" # 配置cri接口
+---
+kind: ClusterConfiguration  
+apiVersion: kubeadm.k8s.io/v1beta3
+kubernetesVersion: v1.26.0 # 配置kubernetes版本
+networking:
+	podSubnet: 10.244.0.0/16 # equals to --pod-network-cidr
+---
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+cgroupDriver: cgroupfs # 配置cgroups

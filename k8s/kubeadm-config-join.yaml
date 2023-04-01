@@ -1,0 +1,14 @@
+kind: KubeletConfiguration
+apiVersion: kubelet.config.k8s.io/v1beta1
+cgroupDriver: cgroupfs # 配置cgroups
+---
+apiVersion: kubeadm.k8s.io/v1beta3
+kind: JoinConfiguration
+nodeRegistration:
+  criSocket: "unix:///var/run/cri-dockerd.sock" # 配置cri接口
+discovery:
+  bootstrapToken:
+    apiServerEndpoint: MASTER_HOST:6443
+    token: KUBEADM_TOKEN
+    caCertHashes:
+    - sha256:CA_CERT_HASH
