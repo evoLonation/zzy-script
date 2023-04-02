@@ -1,5 +1,7 @@
 #!/bin/bash
 . ../tool/judge-root.sh
+. ../proxy/judge-proxy.sh
+
 arch=${1}
 if [ -z $arch ]; then 
 	echo "usage: ${0} arch"
@@ -81,3 +83,5 @@ EOF
 systemctl daemon-reload
 systemctl enable --now cri-docker.service
 systemctl enable --now cri-docker.socket
+
+closeproxy

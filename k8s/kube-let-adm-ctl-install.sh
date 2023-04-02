@@ -1,5 +1,6 @@
 #!/bin/bash
 . ../tool/judge-root.sh
+. ../proxy/judge-proxy.sh
 
 # from https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 apt-get update
@@ -11,3 +12,5 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
+
+closeproxy

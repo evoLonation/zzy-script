@@ -1,5 +1,6 @@
 #!/bin/bash
 . ../tool/judge-root.sh
+. ../proxy/judge-proxy.sh
 
 if [ -z $1 ]; then 
 	echo "usage: ${0} arch"
@@ -10,3 +11,5 @@ wget https://github.com/containernetworking/plugins/releases/download/v1.2.0/cni
 mkdir -pv /opt/cni/bin
 tar -xzf cni-plugins-linux-${arch}-v1.2.0.tgz -C /opt/cni/bin
 rm cni-plugins-linux-${arch}-v1.2.0.tgz
+
+closeproxy

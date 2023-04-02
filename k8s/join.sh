@@ -1,8 +1,8 @@
 #!/bin/bash
 . ../tool/judge-root.sh
-token=$2
-host=$3
-hash=$4
+token=$1
+host=$2
+hash=$3
 if [ -z $3 ]; then 
 	echo "usage: ${0} token master_host ca-cert-hash"
 	exit

@@ -27,7 +27,8 @@ cp clash.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl start clash.service
 systemctl enable clash.service
-cat addin >> ${initfile}
-cat addin >> /home/${user}/.bashrc
+for file in ${initfile} ; do
+	cat addin >> ${file}
+done
 sed -i '/http_proxy/d' /etc/sudoers
 echo "Defaults env_keep += \"http_proxy https_proxy no_proxy\"" >> /etc/sudoers
