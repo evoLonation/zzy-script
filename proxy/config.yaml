@@ -464,6 +464,12 @@ proxy-groups:
     interval: 500
     proxies:
       - 🚀 节点选择
+  - name: 🌍 linux
+    type: url-test
+    url: http://www.gstatic.com/generate_204
+    interval: 500
+    proxies:
+      - 🚀 节点选择
   - name: 🚀 自动选择
     type: url-test
     url: http://www.gstatic.com/generate_204
@@ -494,6 +500,8 @@ proxy-groups:
       - 🇨🇦 加拿大 01
       - 🇺🇦 乌克兰 01
 rules:
+  - DOMAIN-KEYWORD,docker,🌍 linux
+  - DOMAIN-KEYWORD,k8s,🌍 linux
   - DOMAIN-KEYWORD,go.dev,⚪ GO
   - DOMAIN-KEYWORD,bing.com,⚪ BING
   - DOMAIN-SUFFIX,spotify.com,⚪ Spotify
